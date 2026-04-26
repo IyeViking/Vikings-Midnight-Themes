@@ -24,16 +24,17 @@
 }
 
 /* AVATARS (RESTORED ALIGNMENT) */
+.avatar_c19a55,
+.avatarDecoration_c19a55 {
+	transform: scale(1.5) !important;
+}
 
 .avatar_c19a55,
 .avatarDecoration_c19a55,
 .timestampVisibleOnHover_c19a55 {
   margin-left: -4.5rem;
 }
-.avatar_c19a55,
-.avatarDecoration_c19a55 {
-	transform: scale(1.5) !important;
-}
+
 
 
 /* bubble spacing ONLY (no layout shift) */
