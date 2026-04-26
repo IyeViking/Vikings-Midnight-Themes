@@ -209,6 +209,17 @@ body {
 }
 
 
+[data-list-item-id="guildsnav___home"]::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    border-radius: 25%;
+    border: 2px solid var(--accent-2);
+    pointer-events: none;
+    z-index: 999;
+}
+
+
 .avatar_c19a55,
 .avatarDecoration_c19a55 {
 	transform: scale(1.2) !important;

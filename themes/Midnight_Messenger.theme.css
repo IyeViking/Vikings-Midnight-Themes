@@ -207,6 +207,17 @@ body {
 }
 
 
+[data-list-item-id="guildsnav___home"]::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    border-radius: 25%;
+    border: 2px solid var(--accent-2);
+    pointer-events: none;
+    z-index: 999;
+}
+
+
 /* Discord Link Message embed plugin background */
 .embedFull__623de.embed__623de.markup__75297 {
 	background: var(--bg-4) !important;
