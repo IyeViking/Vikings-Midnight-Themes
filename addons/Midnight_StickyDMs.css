@@ -1,0 +1,78 @@
+/* IyeViking's Sticky DMs */
+.tutorialContainer__1f388 {
+    position: sticky !important;
+    top: 0px !important;
+    z-index: 100 !important;
+}
+.itemsContainer_ef3116::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 8%;
+    background-color: var(--bg-2) !important;
+    z-index: 99;
+}
+#guild-list-unread-dms {
+    position: sticky !important;
+    top: 86px !important;
+    z-index: 100 !important;
+}
+#guild-list-unread-dms::before {
+    content: '';
+    position: absolute;
+    top: -35px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 40px);
+    background-color: var(--bg-4);
+    border-radius: 8px;
+    z-index: -1;
+}
+#guild-list-unread-dms::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background-color: var(--accent-2);
+    border-radius: 1px;
+    z-index: 0;
+}
+
+/* Annoying af border */
+[data-list-item-id="guildsnav___home"] {
+    position: relative;
+    z-index: 102;
+    opacity: 1 !important;
+}
+[data-list-item-id="guildsnav___home"]::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    border-radius: 25%;
+    border: 2px solid var(--accent-2);
+    pointer-events: none;
+    z-index: 999;
+}
+[data-list-item-id="guildsnav___home"][aria-selected="true"]::after {
+    opacity: 0 !important;
+}
+/* Annoying af border */
+
+.vc-ranb-button {
+    position: sticky !important;
+    top: 58px;
+    z-index: 1000;
+    background-color: var(--bg-2);
+    border-radius: 10px !important;
+}
+.unreadMentionsIndicatorTop_ef3116 {
+    position: absolute !important;
+    top: 47px;
+    z-index: 1002;
+    transform: scale(0.80);
+}
+
+/* IyeViking's Sticky DMs */
