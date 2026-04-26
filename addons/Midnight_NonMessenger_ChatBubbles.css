@@ -1,0 +1,179 @@
+
+
+/* SELF COLORS */
+
+/* */
+[data-is-self="true"] .message__5126c {
+  --cb-bubble-background: var(--cb-bubble-background-self);
+  --cb-bubble-background-hover: var(--cb-bubble-background-hover-self);
+  --text-normal: var(--cb-text-normal-self);
+  --text-muted: var(--cb-text-muted-self);
+  --header-primary: var(--cb-text-muted-self);
+}
+
+[data-is-self="true"] .message__5126c .repliedMessage_c19a55 {
+  background: var(--bg-3);
+}
+/* */
+
+
+/* MESSAGE LAYOUT (FIXED) */
+
+.messageListItem__5126c {
+  margin-left: 68px;
+}
+
+/* AVATARS (RESTORED ALIGNMENT) */
+
+.avatar_c19a55,
+.avatarDecoration_c19a55,
+.timestampVisibleOnHover_c19a55 {
+  margin-left: -4.5rem;
+}
+
+
+
+/* bubble spacing ONLY (no layout shift) */
+.message__5126c {
+  background: var(--cb-bubble-background);
+
+  width: fit-content;
+  max-width: calc(100% - 9.7rem);
+
+  padding: 12px !important;
+  border-radius: var(--cb-bubble-corner-radius);
+
+}
+
+/* Reset ONLY grouped messages (same author stack) */
+.messageListItem__5126c:not(.groupStart__5126c) {
+  margin-top: 8px !important;   /* your custom small gap */
+}
+
+/* Keep proper spacing when a new group starts (different author) */
+.messageListItem__5126c.groupStart__5126c {
+  margin-top: 12px !important;  /* restore normal separation */
+}
+
+/* hover */
+.message__5126c.selected__5126c,
+.mouse-mode.full-motion .message__5126c:hover,
+.theme-dark .message__5126c.selected__5126c,
+.theme-dark.mouse-mode.full-motion .message__5126c:hover {
+  background: var(--cb-bubble-background-hover);
+}
+
+
+/* MENTIONS (FIXED + CONSISTENT) */
+
+.message__5126c.mentioned__5126c:not(.systemMessage__5126c) {
+  background: var(--background-mentioned) !important;
+}
+
+.message__5126c.mentioned__5126c:not(.systemMessage__5126c):hover {
+  background: var(--background-mentioned-hover) !important;
+}
+
+/* self mention blending */
+[data-is-self="true"] .message__5126c.mentioned__5126c {
+  background: color-mix(
+    in srgb,
+    var(--cb-bubble-background-self) 70%,
+    var(--background-mentioned)
+  ) !important;
+}
+
+[data-is-self="true"] .message__5126c.mentioned__5126c:hover {
+  background: color-mix(
+    in srgb,
+    var(--cb-bubble-background-hover-self) 70%,
+    var(--background-mentioned-hover)
+  ) !important;
+}
+
+/* mention indicator */
+.mentioned__5126c {
+  border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--background-mentioned), var(--accent-1) 70%);
+}
+
+[data-is-self="true"] .mentioned__5126c {
+  border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--accent-2), green 80%);
+}
+
+
+/* REPLIES */
+
+.repliedMessage_c19a55 {
+  display: flex;              /* force flex so wrapping works */
+  flex-wrap: wrap;           /* allow wrapping */
+
+  padding: 2px;
+  border-left: 2px solid;
+  border-radius: 10px !important;
+  padding-left: 6px;
+
+  background: var(--bg-4);
+}
+
+/* mentioned reply styling (FIXED specificity + override) */
+.message__5126c.mentioned__5126c .repliedMessage_c19a55 {
+  border-radius: 10px !important;
+
+  background: color-mix(
+    in srgb,
+    var(--background-mentioned),
+    black 30%
+  ) !important;
+}
+
+/* self messages reply tint */
+[data-is-self="true"] .message__5126c .repliedMessage_c19a55 {
+  background: color-mix(
+    in srgb,
+    var(--cb-bubble-background),
+    black 30%
+  ) !important;
+}
+
+/* self messages reply tint */
+[data-is-self="true"] .message__5126c.mentioned__5126c  .repliedMessage_c19a55 {
+  background: color-mix(
+    in srgb,
+    var(--background-mentioned),
+    var(--cb-bubble-background-self)20%
+  ) !important;
+}
+
+
+/* force the text preview onto a new line */
+.repliedMessage_c19a55 > .repliedTextPreview_c19a55 {
+  width: 100%;
+  flex-basis: 100%;
+}
+
+/* fix text overflow ellipsis */
+.repliedTextContent_c19a55 {
+  display: unset;
+}
+
+/* show reply avatar (if desired) */
+.replyAvatar_c19a55,
+.executedCommandAvatar_c19a55 {
+  display: unset;
+}
+
+/* fix command preview height */
+.executedCommand_c19a55 {
+  height: unset;
+}
+
+/* remove thread arrow */
+.hasThread_c19a55::after {
+  display: none;
+}
+
+/* remove reply spine */
+.repliedMessageClickableSpine_c19a55 {
+  display: none;
+}
+

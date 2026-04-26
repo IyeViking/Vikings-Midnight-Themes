@@ -1,0 +1,399 @@
+/**
+ * @name Midnight Messenger
+ * @description A dark, messenger style Midnight with a WhatsApp / Classic messaging layout.
+ * @author refact0r, Adonis, IyeViking
+ * @version 2.1.1
+ * @invite nz87hXyvcy
+ * @website https://github.com/refact0r/midnight-discord
+ * @authorId 508863359777505290
+ * @authorLink https://www.refact0r.dev
+*/
+
+/* import theme modules */
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+@import url('https://raw.githubusercontent.com/IyeViking/Vikings-Midnight-Themes/refs/heads/main/addons/Midnight_ChatBubbles.css'); 
+
+body {
+    /* font options */
+    --font: 'figtree'; /* change to '' for default discord font */
+    --code-font: ''; /* change to '' for default discord font */
+    font-weight: 450; /* normal text font weight. DOES NOT AFFECT BOLD TEXT */
+
+    /* sizes */
+    --gap: 10px; /* spacing between panels */
+    --divider-thickness: 2px; /* thickness of unread messages divider and highlighted message borders */
+    --border-thickness: 0px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+
+    /* animation/transition options */
+    --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+    --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+    /* top bar options */
+    --top-bar-height: var(--gap); /* height of the top bar (discord default is 36px, old discord style is 24px, var(--gap) recommended if button position is set to titlebar) */
+    --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar (will hide title) */
+    --top-bar-title-position: off; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
+    --subtle-top-bar-title: off; /* off: default, on: hide the icon and use subtle text color (like old discord) */
+
+    /* window controls */
+    --custom-window-controls: on; /* off: default window controls, on: custom window controls */
+    --window-control-size: 14px; /* size of custom window controls */
+
+    /* dms button options */
+    --custom-dms-icon: off; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+    --dms-icon-svg-url: url(''); /* icon svg url. MUST BE A SVG. */
+    --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
+    --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
+    --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
+    --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+    --dms-background-image-url: url(''); /* url of the background image */
+    --dms-background-image-size: cover; /* size of the background image (css background-size property) */
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
+
+    /* background image options */
+    --background-image: off; /* off: no background image, on: enable background image (must set url variable below) */
+    --background-image-url: url(''); /* url of the background image */
+
+    /* transparency/blur options */
+    /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
+    --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
+    --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --panel-blur: off; /* off: no changes, on: blur the background of panels */
+    --blur-amount: 12px; /* amount of blur */
+    --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+
+    /* chatbar options */
+    --custom-chatbar: separated; /* off: default chatbar, separated: chatbar separated from chat */
+    --chatbar-height: 56px; /* height of the chatbar (56px by default, 47px to align with user panel, 56px recommended for separated) */
+
+    /* other options */
+    --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
+	
+	
+}
+
+/* color options */
+:root {
+    --colors: on; /* off: discord default colors, on: midnight custom colors */
+
+    /* text colors */
+    --text-0: #FFFFFFC9; /* text on colored elements */
+    --text-1: #FFFFFFC9; /* other normally white text */
+    --text-2: #d3d3d3; /* headings and important text */
+    --text-3: #dbdee1; /* normal text */
+    --text-4: #aeaeb4; /* icon buttons and channels */
+    --text-5: #a8a8af; /* muted channels/chats and timestamps */
+
+    /* background and dark colors */
+    --bg-1: #323842; /* dark buttons when clicked */
+    --bg-2: #16191d; /* dark buttons */
+    --bg-3: #16191d; /* spacing, secondary elements*/ 
+    --bg-4: #20242a; /* main background color */
+    --hover: #282e36; /* channels and buttons when hovered */
+    --active: hsla(220, 15%, 40%, 0.3); /* channels and buttons when clicked or selected */
+    --active-2: hsla(220, 19%, 40%, 0.3); /* extra state for transparent buttons */
+    --message-hover: hsla(230, 0%, 0%, 0.1); /* messages when hovered */
+
+
+    /* accent colors */
+    --accent-1: #7eb2f7; /* links and other accent text */
+    --accent-2: #3c9278; /* small accent elements */
+    --accent-3: #2f7f68; /* accent buttons */
+    --accent-4: #369377; /* accent buttons when hovered */
+    --accent-5: #2a6f5c; /* accent buttons when clicked */
+    --accent-new: #d43c42; /* stuff that's normally red like mute/deafen buttons */
+    --mention: #35384a; /* background of messages that mention you */
+    --mention-hover: #303346; /* background of messages that mention you when hovered */
+    --reply: #373c47; /* background of messages that reply to you */
+    --reply-hover: #333742; /* background of messages that reply to you when hovered */
+
+    /* status indicator colors */
+    --online: var(--green-2); /* change to #43a25a for default */
+    --dnd: #bf3441; /* change to #d83a42 for default */
+    --idle: #e0b34a; /* change to #ca9654 for default */
+    --streaming: #7443c8; /* change to #593695 for default */
+    --offline: #5b646d; /* change to #83838b for default offline color */
+
+    /* border colors */
+    --border-light: rgba(0, 0, 0, 0); /* general light border color */
+    --border: var(--bg-1); /* general normal border color */
+    --border-hover: rgba(0, 0, 0, 0); /* border color of panels when hovered */
+    --button-border: rgba(0, 0, 0, 0); /* neutral border color of buttons */
+
+    /* base colors */
+    --red-1: #bf3441;
+    --red-2: #bf3441;
+    --red-3: #bf3441;
+    --red-4: oklch(58% 0.12 0);
+    --red-5: oklch(52% 0.12 0);
+
+    --green-1: #43a883;
+    --green-2: #43a883;
+    --green-3: oklch(64% 0.11 170);
+    --green-4: oklch(58% 0.11 170);
+    --green-5: oklch(52% 0.11 160);
+
+    --blue-1: oklch(76% 0.1 215);
+    --blue-2: oklch(70% 0.1 215);
+    --blue-3: oklch(64% 0.1 215);
+    --blue-4: oklch(58% 0.1 215);
+    --blue-5: oklch(52% 0.1 215);
+
+    --yellow-1: oklch(80% 0.11 90);
+    --yellow-2: oklch(74% 0.11 90);
+    --yellow-3: oklch(68% 0.11 90);
+    --yellow-4: oklch(62% 0.11 90);
+    --yellow-5: oklch(56% 0.11 90);
+
+    --purple-1: oklch(76% 0.11 310);
+    --purple-2: oklch(70% 0.11 310);
+    --purple-3: oklch(64% 0.11 310);
+    --purple-4: oklch(58% 0.11 310);
+    --purple-5: oklch(52% 0.11 310);
+    
+	
+	
+	
+	/* Chat Bubble Config */
+	
+  /* Message bubble corner radius */
+  --cb-bubble-corner-radius: 12px;
+  /* Width of left indicator line in messages with mention */
+  --cb-mentioned-indicator-width: 3px;
+  /* Width of left indicator line in message that you are replying */
+
+    /* Chat bubbles compat */
+    --cb-bubble-background: #16191e;
+    --cb-bubble-background-hover: #191c21;
+    --cb-bubble-background-self: #17533d;
+    --cb-bubble-background-hover-self: #1a5e45;
+    --background-mentioned: #2a2e4a;
+    --background-mentioned-hover: #303555;
+    --cb-text-normal-self: var(--text-1);
+    --cb-text-muted-self: var(--text-3);
+	
+	
+	
+/* User Panel Redesign */
+
+  --panel-radius: 16px;
+
+  --spotify-image-opacity: 0.5;
+  --spotify-image-hover-opacity: 0.85;
+
+  --order-quests: 0;
+  --order-listening: 1;
+  --order-stream: 2;
+  --order-spotify-player: 3;
+  --order-voice: 4;
+  --order-profile: 5;
+  
+/* User Panel Redesign */
+  
+}
+
+.container__37e49.containerRtcOpened__37e49 {
+	border: 0px !important;
+}
+.container_e131a9 {
+	border: 0px !important;
+}
+.panel__5dec7.activityPanel__5e434 {
+	border: 0px !important;
+}
+.container__37e49{
+	border: 0px !important;
+}
+
+
+/* Discord Link Message embed plugin background */
+.embedFull__623de.embed__623de.markup__75297 {
+	background: var(--bg-4) !important;
+}
+
+.avatar_c19a55,
+.avatarDecoration_c19a55 {
+	transform: scale(1.1) !important;
+}
+
+
+.mediaBarGrabber_b26b79 {
+	background-color: #dbdee1 !important;
+}
+
+
+.mentioned__5126c {
+  border-left: var(--cb-mentioned-indicator-width) solid #7eb2f7;
+}
+
+/* Deleted Messages */
+.messagelogger-deleted .message__5126c {
+  background: rgba(191, 52, 65, 0.2) !important;
+}
+.messagelogger-deleted .message__5126c:hover {
+  background: rgba(191, 52, 65, 0.3) !important;
+}
+/* Deleted Messages */
+
+.mouse-mode.full-motion .message__5126c:hover .buttonsInner__5126c {
+  background: var(--bg-3) !important;
+  transform: scale(1.15) translateX(40px) !important;
+}
+
+
+/* User Panel Redesign */
+
+.panels__5e434 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  background: var(--bg-3);
+  border: none;
+}
+
+.mask__0d616 {
+  order: var(--order-quests);
+  margin-inline: 0;
+  padding-inline: 0;
+  border-radius: var(--panel-radius);
+}
+.wrapper__0d616,
+.wrapperVisible__0d616 {
+  border-radius: var(--panel-radius);
+}
+
+.listeningAlong_e0cf27,
+.panel__5dec7,
+.container_e131a9,
+.container__37e49 {
+  background-color: var(--bg-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--panel-radius);
+}
+
+.listeningAlong_e0cf27 {
+  order: var(--order-listening);
+}
+
+.panel__5dec7 {
+  order: var(--order-stream);
+  padding: calc(var(--custom-guild-list-padding) - var(--custom-panels-spacing) + 3px);
+}
+
+.wrapper_e131a9 {
+  order: var(--order-voice);
+
+  &:not(:has(.container_e131a9)) {
+    display: none;
+  }
+
+  .container_e131a9 {
+    min-height: 90px;
+  }
+}
+
+.container__37e49 {
+  order: var(--order-profile);
+  min-height: 56px;
+
+  &:has(.plated_37e49) {
+    border: none;
+  }
+}
+
+
+/* Vencord Spotify */
+
+#vc-spotify-player {
+  order: var(--order-spotify-player);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-4) !important;
+  border: 1px solid transparent;
+  border-radius: var(--panel-radius);
+  margin: 0 -1px;
+}
+
+  .barFill_a562c8 {
+    background-color: #369377 !important;
+  }
+
+#vc-spotify-album-image {
+  border-radius: 20%;
+}
+
+
+  .vc-spotify-button-play,
+  .vc-spotify-repeat-context,
+  .vc-spotify-repeat-track,
+  .vc-spotify-shuffle-on {
+    span {
+      color: #369377 !important;
+    }
+    svg {
+      fill: #369377 !important;
+    }
+  }
+
+.vc-spotify-button:hover {
+  color: #369377; /* Hover color */
+}
+
+  .vc-spotify-progress-time {
+    margin-top: 10px;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transition: all 0.4s ease-out;
+    z-index: -1;
+  }
+
+
+/* User Panel Redesign */
+
+
+/* Spoiler Colour */
+
+span[role="button"][aria-label="Spoiler"] {
+  	background-color: #2a2f36 !important; /* base spoiler colour */
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+}
+
+span[role="button"][aria-label="Spoiler"]:hover {
+  background-color: #343b44 !important; /* hover colour */
+}
+
+/* Spoiler Colour */
+
+/* No Activity Status*/
+[class*='membersGroup']:has([role=button]),
+[class*='member'] [class*='container']:has([class*='badges']) {
+  display: none;
+}
+/* Hide activity status and member group buttons */
+[class*='membersGroup']:has([role=button]),
+[class*='member'] [class*='container']:has([class*='badges']) {
+  display: none;
+}
+/* No Activity Status*/
+
+/* Stage channel icon */
+[class^=icon__] path[d^="M19.61 18.25a1.08"] {
+    color: #3bc085 !important;
+}
+
+/* Stage channel icon */
+
+/* Bold Usernames */
+.username_c19a55 {
+  font-weight: 500 !important;
+}
+/* Bold Usernames */
+
+

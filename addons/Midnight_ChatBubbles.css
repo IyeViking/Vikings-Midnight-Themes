@@ -1,0 +1,439 @@
+
+
+/* Self Highlight colors, use ThemeAttributes to access */
+[data-is-self="true"] .message__5126c {
+  --cb-bubble-background: var(--cb-bubble-background-self);
+  --cb-bubble-background-hover: var(--cb-bubble-background-hover-self);
+  --text-normal: var(--cb-text-normal-self);
+  --text-muted: var(--cb-text-muted-self);
+  --header-primary: var(--cb-text-muted-self);
+  .repliedMessage_c19a55 {
+    background: color-mix(in srgb, var(--cb-bubble-background), black 30%)
+  }
+}
+/* Messagelogger colors */
+.messagelogger-deleted .message__5126c.message__5126c {
+  --cb-bubble-background: rgb(243 140 169 / 10%);
+  --cb-bubble-background-hover: hsl(343 81% 75% / 15%) !important;
+  --text-normal: #f38ba8;
+  --text-muted: #e5668a;
+  --header-primary: #e5668a;
+}
+.messageListItem__5126c {
+  margin-left: 68px;
+}
+
+/* 🔥 Message grouping spacing (clean + non-breaking) */
+
+/* small gap between messages from SAME sender */
+.messageListItem__5126c:not(.groupStart__5126c):not(:has(.systemMessage__5126c)) {
+  margin-top: 8px !important;
+}
+
+/* normal gap when a NEW sender starts */
+.messageListItem__5126c.groupStart__5126c:not(:has(.systemMessage__5126c)) {
+  margin-top: 12px !important;
+}
+
+
+
+/* 🔥 Extra separation for system messages (calls, pins, etc.) */
+
+
+/* System message itself */
+.messageListItem__5126c:has(.systemMessage__5126c) {
+  margin-top: 18px;
+  margin-bottom: 0px;
+}
+
+/* Message AFTER a system message */
+.messageListItem__5126c:has(.systemMessage__5126c) + .messageListItem__5126c {
+  margin-top: 18px;
+}
+
+
+.message__5126c:not(.systemMessage__5126c) {
+  background: var(--cb-bubble-background);
+  margin-left: 0.5rem;
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+  margin-right: 65px;
+  width: fit-content;
+  max-width: calc(100% - 9.7rem);
+  transform: translateX(0);
+  transition: transform var(--hover-push);
+  padding: 10px !important;
+  border-radius: var(--cb-bubble-corner-radius);
+
+}
+
+.message__5126c.selected__5126c,
+.mouse-mode.full-motion .message__5126c:hover {
+  background: var(--cb-bubble-background-hover);
+}
+
+
+.theme-dark .message__5126c.selected__5126c,
+.theme-dark.mouse-mode.full-motion .message__5126c:hover {
+  background: var(--cb-bubble-background-hover);
+}
+
+[data-is-self="true"] .message__5126c:not(.systemMessage__5126c, .vc-rdb-review) {
+  margin-right: 4rem;
+  margin-left: auto;
+  max-width: calc(100% - 8.5rem - 20px);
+}
+
+[data-is-self="true"] .avatar_c19a55 {
+  right: calc(-1 * var(--custom-message-margin-horizontal) - 40px);
+  left: unset;
+}
+
+[data-is-self="true"] .avatarDecoration_c19a55 {
+  right: calc(-1 * var(--custom-message-margin-horizontal) - 44px);
+  left: unset;
+}
+
+[data-is-self="true"] .message__5126c.replying__5126c {
+  transform: translateX(-20px);
+}
+
+
+@property --d1 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 5%;
+}
+@property --mention-bg {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsla(210, 17%, 53, 0.1);
+}
+.message__5126c:not(.systemMessage__5126c).mentioned__5126c {
+  background: var(--background-mentioned);
+  &:hover {
+  background: var(--background-mentioned-hover) !important;
+  }
+}
+
+.avatar_c19a55,
+.avatarDecoration_c19a55,
+.timestampVisibleOnHover_c19a55 {
+  /* Fix avatar, avatar decoration, timestamp position */
+  margin-left: -4.5rem;
+}
+
+
+
+.repliedMessage_c19a55+.contents_c19a55>.avatar_c19a55 {
+  /* Set avatar position near answer message */
+  margin-top: -40px;
+}
+
+.repliedMessage_c19a55+.contents_c19a55>.avatarDecoration_c19a55 {
+  /* Set avatar decoration position near answer message */
+  margin-top: calc(-40px + -0.2rem);
+}
+
+/*#endregion Message*/
+/*#region Replied preview*/
+.repliedMessage_c19a55 {
+  padding: 2px;
+  border-left: 2px solid;
+  border-radius: 10px !important;
+  padding-left: 6px;
+  background: var(--bg-4);
+}
+
+/* mentioned replies (FIXED override like before) */
+.message__5126c.mentioned__5126c .repliedMessage_c19a55 {
+  border-radius: 10px !important;
+
+  background: color-mix(
+    in srgb,
+    var(--background-mentioned),
+    black 30%
+  ) !important;
+}
+
+[data-is-self="true"] .message__5126c.mentioned__5126c .repliedMessage_c19a55 {
+  border-radius: 10px !important;
+
+  background: color-mix(
+    in srgb,
+    var(--background-mentioned),
+    var(--cb-bubble-background-self)20%
+  ) !important;
+}
+
+
+.repliedMessage_c19a55 {
+  /* Move replied text preview to next line */
+  flex-wrap: wrap;
+}
+
+.repliedMessage_c19a55>.repliedTextPreview_c19a55 {
+  width: calc(100% - 24px);
+  /* Preserve space for image thumbnail icon */
+}
+
+.repliedTextContent_c19a55 {
+  /* Fix add ... in the end of not fitting text */
+  display: unset;
+}
+
+.replyAvatar_c19a55,
+.executedCommandAvatar_c19a55 {
+  /* Hide reply avatar */
+  display: unset;
+}
+
+.executedCommand_c19a55 {
+  /* Fix replied "message with command" preview height */
+  height: unset;
+}
+
+/* TODO: Somehow fix replied "message with command" preview "used /blahblah" left margin */
+/*#endregion Replied preview*/
+/*#region Mentioned*/
+.mentioned__5126c::before {
+  /* Recreate mentioned style to have rounded corners */
+  display: none;
+}
+
+.mentioned__5126c {
+  border-left: var(--cb-mentioned-indicator-width) solid #f9e2af;
+}
+
+.mentioned__5126c .avatar_c19a55 {
+  /* Fix avatar indent when mentioned */
+  margin-left: calc(-4.5rem - var(--cb-mentioned-indicator-width));
+}
+
+/*#endregion Mentioned*/
+/*#region Replying*/
+.replying__5126c::before {
+  /* Recreate replying style to have rounded corners */
+  display: unset;
+}
+
+.replying__5126c {
+  border-left: var(--brand-experiment) 2px solid;
+}
+
+.replying__5126c .avatar_c19a55 {
+  /* Fix avatar indent when replying */
+  margin-left: calc(-4.5rem - var(--cb-replying-indicator-width));
+}
+
+/*#endregion Replying*/
+/*#region Threads*/
+.container__9271d {
+  background: var(--background-secondary-alt);
+  width: -webkit-fill-available;
+  margin-top: unset;
+}
+
+.hasThread_c19a55::after {
+  /* Remove thread "arrow" */
+  display: none;
+}
+
+/*#endregion Threads*/
+/*#region Reactions*/
+.reaction_f8896c {
+  /* Add background to reactions */
+  background: var(--background-primary);
+  border-color: hsla(0, calc(var(--saturation-factor, 1) * 0%), 100%, 0.2);
+  margin-top: 5px;
+}
+
+.theme-light.reaction_f8896c {
+  border-color: hsla(0, calc(var(--saturation-factor, 1) * 0%), 0%, 0.2);
+}
+
+.reactions_f8896c {
+  /* Fix reactions bottom margin */
+  margin-bottom: -1px;
+  padding-bottom: unset;
+}
+
+.reaction_f8896c {
+  margin-bottom: unset;
+}
+
+.reactionBtn_f8896c {
+  /* Fix add reaction button bottom margin */
+  margin-bottom: unset;
+}
+
+/*#endregion Reactions*/
+/*#region Emoji*/
+.emojiContainer__75abc {
+  width: fit-content;
+  height: fit-content;
+}
+
+.emoji {
+  width: 21px;
+  height: 21px;
+}
+
+/*#endregion Emoji*/
+/*#region Dividers*/
+.divider__5126c,
+.divider__908e2 {
+  /* Fix dividers indents */
+  position: relative;
+  top: 0px !important;
+  margin: 17px 0px !important;
+}
+
+/*#endregion Dividers*/
+/*#region Alt-text*/
+.altText__0f481 {
+  /* Fix alt-text indents */
+  margin: 10px 0 0 0px;
+}
+
+.altText__0f481:empty {
+  display: none;
+}
+
+/* Reply spine */
+.repliedMessageClickableSpine_c19a55 {
+  display: none;
+}
+/*#endregion Alt-text*/
+
+/*#region Embeds*/
+.container_b7e1cb {
+  /* Add gaps between embeds */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reaction_f8896c {
+  /* Fix reactions top margin */
+  margin-top: unset;
+}
+
+.reactions_f8896c {
+  /* Fix reactions position */
+  width: 100%;
+}
+
+/*#endregion Embeds*/
+/*#region Images*/
+.imageWrapper__178ee {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.imageContainer__0f481+.altText__0f481 {
+  /* Hide image details */
+  display: none;
+}
+
+.messageAttachment__5dae1 .imageWrapper__178ee {
+  /* Make images same width */
+  max-width: 350px !important;
+}
+
+.messageAttachment__5dae1 {
+  width: 100%;
+}
+
+/*#endregion Images*/
+/*#region Remove attachment buttons*/
+.imageContainer__0f481 {
+  position: relative;
+}
+
+.removeAttachmentButton__692b5 {
+  z-index: 1;
+  position: absolute;
+  top: 4px;
+  right: -4px;
+  background: var(--background-primary);
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  box-shadow: -0.4px 0.4px 2px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate3d(0, -10px, 0);
+  transition: all 0.1s ease-in-out;
+}
+
+/*#endregion Remove attachment buttons*/
+/* Replying to */
+.message__5126c.replying__5126c {
+  transform: translateX(20px);
+}
+
+
+
+/* Styled message bubbles with arrow pointing to sender */
+@container style(--bool-wa-style-bubbles: true) {
+  .message__5126c.groupStart__5126c:not(.systemMessage__5126c) {
+  }
+  .message__5126c.groupStart__5126c:not(.systemMessage__5126c)::before {
+    content: "";
+    position: absolute;
+    padding: 10px 6.5px;
+    top: 0;
+    left: -8px;
+  
+  /* Shift avatar in replied messages up */
+  .repliedMessage_c19a55+.contents_c19a55 {
+  & > .avatar_c19a55{
+    margin-top: -3.8rem;
+    }
+    & > .avatarDecoration_c19a55 {
+      margin-top: -4.1rem;
+    }
+  }
+  /* Fix mentioned message left bar */
+  .mentioned__5126c.mentioned__5126c.mentioned__5126c.groupStart__5126c::before {
+    display: block;
+    background-color: #f9e2af !important;
+    left: -10px;
+  }
+  span.messageChipletContainerInner__10651, span.messageText__10651 {
+    line-height: unset !important;
+  }
+  [data-is-self="true"] .message__5126c {
+      --background-surface-high: color-mix(in srgb, var(--cb-bubble-background-self) 65%, black);
+  }
+
+}
+}
+/* mention indicator */
+.mentioned__5126c {
+  border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--background-mentioned), var(--accent-1) 70%);
+}
+
+[data-is-self="true"] .mentioned__5126c {
+  border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--accent-2), green 80%);
+}
+
+/* self mention blending */
+[data-is-self="true"] .message__5126c.mentioned__5126c {
+  background: color-mix(
+    in srgb,
+    var(--cb-bubble-background-self) 70%,
+    var(--background-mentioned)
+  ) !important;
+}
+
+[data-is-self="true"] .message__5126c.mentioned__5126c:hover {
+  background: color-mix(
+    in srgb,
+    var(--cb-bubble-background-hover-self) 70%,
+    var(--background-mentioned-hover)
+  ) !important;
+}
+

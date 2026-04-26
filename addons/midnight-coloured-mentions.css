@@ -1,0 +1,82 @@
+/* Coloured role mentions — excluding replies */
+.mentioned__5126c:not(.hasReply_c19a55) {
+  background: none;
+  z-index: 0;
+}
+.message__5126c:hover, .message__5126c.selected__5126c {
+  background-color: var(--bg-overlay-1, var(--background-message-hover)) !important;
+}
+.messageContent_c19a55, .compact_c19a55 .contents_c19a55 {
+  position: unset !important;
+}
+.mention, .roleMention__75297 {
+  position: unset;
+  filter: none;
+}
+
+/* Line separator for non-replies */
+.hasReply_c19a55.mentioned__5126c:not(.hasReply_c19a55):not(:has([class*="ention"])):before,
+.mentioned__5126c .mention:before,
+.mentioned__5126c .roleMention__75297:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(4px, -50%);
+  height: 90%; /* change this value as needed */
+  width: 2px;
+  border-radius: 10px;
+  background-color: currentColor !important; /* Uses the color of the mention text */
+  filter: saturate(var(--saturation-factor, 1));
+  pointer-events: none;
+}
+
+/* Message background for mentions and role mentions — excluding replies */
+.mentioned__5126c:not(.hasReply_c19a55) .mention:after,
+.mentioned__5126c:not(.hasReply_c19a55) .roleMention__75297:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: currentColor !important;
+  opacity: 0.25;
+  z-index: -1;
+  pointer-events: none;
+  filter: saturate(var(--saturation-factor, 1));
+  border-radius: 10px;
+}
+
+/* Fallback color for user mentions — excluding replies */
+.mentioned__5126c:not(.hasReply_c19a55) .mention:not(.roleMention__75297):after {
+  background-color: var(--brand-500) !important;
+  opacity: 0.1;
+}
+
+/* Line and background color for inline-colored role mentions */
+.roleMention__75297[style]:before {
+  background-color: currentColor;
+}
+.roleMention__75297[style]:after {
+  background-color: currentColor !important;
+  filter: saturate(var(--saturation-factor, 1));
+  opacity: 0.1;
+}
+
+/* Remove default Discord styling */
+.mentioned__5126c:not(.hasReply_c19a55):before,
+.mentioned__5126c:after,
+.mention ~ [class*="ention"]:before,
+.mention ~ [class*="ention"]:after,
+.roleMention__75297 ~ [class*="ention"]:before,
+.roleMention__75297 ~ [class*="ention"]:after {
+  content: unset;
+}
+
+/* MULTIPLE mentions → reduce opacity */
+.mentioned__5126c:not(.hasReply_c19a55):has(.mention ~ .mention) .mention::after,
+.mentioned__5126c:not(.hasReply_c19a55):has(.roleMention__75297 ~ .roleMention__75297) .roleMention__75297::after,
+.mentioned__5126c:not(.hasReply_c19a55):has(.mention ~ .roleMention__75297) .mention::after,
+.mentioned__5126c:not(.hasReply_c19a55):has(.roleMention__75297 ~ .mention) .roleMention__75297::after {
+  opacity: 0.01 !important; /* lower this if still too strong */
+}
+
+
