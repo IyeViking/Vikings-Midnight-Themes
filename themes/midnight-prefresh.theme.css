@@ -11,5 +11,540 @@
 */
 
 /* import theme modules */
-@import url('https://github.com/IyeViking/Midnight-Prefresh-Discord-Theme/raw/main/build/prefresh-midnight-main.css');
+/* import theme modules */
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+@import url('https://nspc911.github.io/themes/vencord/ChatRelatedAlertsAtTop.theme.css');
+
+body {
+    /* font options */
+    --font: ''; /* change to '' for default discord font */
+    --code-font: ''; /* change to '' for default discord font */
+    font-weight: 400; /* normal text font weight. DOES NOT AFFECT BOLD TEXT */
+
+    /* sizes */
+    --gap: 6px; /* spacing between panels */
+    --divider-thickness: 2px; /* thickness of unread messages divider and highlighted message borders */
+    --border-thickness: 0px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+
+    /* animation/transition options */
+    --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+    --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+    /* top bar options */
+    --top-bar-height: var(--gap); /* height of the top bar (discord default is 36px, old discord style is 24px, var(--gap) recommended if button position is set to titlebar) */
+    --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar (will hide title) */
+    --top-bar-title-position: off; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
+    --subtle-top-bar-title: off; /* off: default, on: hide the icon and use subtle text color (like old discord) */
+
+    /* window controls */
+    --custom-window-controls: off; /* off: default window controls, on: custom window controls */
+    --window-control-size: 14px; /* size of custom window controls */
+
+    /* dms button options */
+    --custom-dms-icon: off; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+    --dms-icon-svg-url: url(''); /* icon svg url. MUST BE A SVG. */
+    --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
+    --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
+    --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
+    --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+    --dms-background-image-url: url(''); /* url of the background image */
+    --dms-background-image-size: cover; /* size of the background image (css background-size property) */
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
+
+    /* background image options */
+    --background-image: off; /* off: no background image, on: enable background image (must set url variable below) */
+    --background-image-url: url(''); /* url of the background image */
+
+    /* transparency/blur options */
+    /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
+    --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
+    --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --panel-blur: off; /* off: no changes, on: blur the background of panels */
+    --blur-amount: 12px; /* amount of blur */
+    --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+
+    /* chatbar options */
+    --custom-chatbar: separated; /* off: default chatbar, separated: chatbar separated from chat */
+    --chatbar-height: 56px; /* height of the chatbar (56px by default, 47px to align with user panel, 56px recommended for separated) */
+
+    /* other options */
+    --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
+}
+
+/* color options */
+:root {
+    --colors: on; /* off: discord default colors, on: midnight custom colors */
+
+    /* text colors */
+    --text-0: #FFFFFFC9; /* text on colored elements */
+    --text-1: #FFFFFFC9; /* other normally white text */
+    --text-2: #eaeaea; /* headings and important text */
+    --text-3: #dbdee1; /* normal text */
+    --text-4: #aeaeb4; /* icon buttons and channels */
+    --text-5: #a8a8af; /* muted channels/chats and timestamps */
+
+    /* background and dark colors */
+    --bg-1: #43434a; /* dark buttons when clicked */
+    --bg-2: #1e1f22; /* dark buttons */
+    --bg-3: #28282d; /* spacing, secondary elements*/ 
+    --bg-4: #313338; /* main background color */
+    --hover: #26282b; /* channels and buttons when hovered */
+    --active: hsla(220, 15%, 40%, 0.3); /* channels and buttons when clicked or selected */
+    --active-2: hsla(220, 19%, 40%, 0.3); /* extra state for transparent buttons */
+    --message-hover: hsla(230, 0%, 0%, 0.1); /* messages when hovered */
+
+    /* accent colors */
+    --accent-1: #75a5e5; /* links and other accent text */
+    --accent-2: #6e85d3; /* small accent elements */
+    --accent-3: #555fc9; /* accent buttons */
+    --accent-4: #6374c8; /* accent buttons when hovered */
+    --accent-5: #586abe; /* accent buttons when clicked */
+    --accent-new: #d43c42; /* stuff that's normally red like mute/deafen buttons */
+    --mention: #35384a; /* background of messages that mention you */
+    --mention-hover: #303346; /* background of messages that mention you when hovered */
+    --reply: #373c47; /* background of messages that reply to you */
+    --reply-hover: #333742; /* background of messages that reply to you when hovered */
+
+    /* status indicator colors */
+    --online: #23a55a; /* change to #43a25a for default */
+    --dnd: #d83a42; /* change to #d83a42 for default */
+    --idle: #f0b232; /* change to #ca9654 for default */
+    --streaming: #8c45f7; /* change to #593695 for default */
+    --offline: #83838b; /* change to #83838b for default offline color */
+
+    /* border colors */
+    --border-light: hsl(230, 20%, 40%, 0.1); /* light border color */
+    --border: rgba(0, 0, 0, 0); /* normal border color */
+    --border-hover: var(--active); /* border color of panels when hovered */
+    --button-border: rgba(0, 0, 0, 0); /* neutral border color of buttons */
+
+    /* base colors */
+    --red-1: #dd3336;
+    --red-2: #c23234;
+    --red-3: #a02c30;
+    --red-4: oklch(58% 0.12 0);
+    --red-5: oklch(52% 0.12 0);
+
+    --green-1: oklch(76% 0.11 170);
+    --green-2: #338b49;
+    --green-3: oklch(64% 0.11 170);
+    --green-4: oklch(58% 0.11 170);
+    --green-5: oklch(52% 0.11 160);
+
+    --blue-1: oklch(76% 0.1 215);
+    --blue-2: oklch(70% 0.1 215);
+    --blue-3: oklch(64% 0.1 215);
+    --blue-4: oklch(58% 0.1 215);
+    --blue-5: oklch(52% 0.1 215);
+
+    --yellow-1: oklch(80% 0.11 90);
+    --yellow-2: oklch(74% 0.11 90);
+    --yellow-3: oklch(68% 0.11 90);
+    --yellow-4: oklch(62% 0.11 90);
+    --yellow-5: oklch(56% 0.11 90);
+
+    --purple-1: oklch(76% 0.11 310);
+    --purple-2: oklch(70% 0.11 310);
+    --purple-3: oklch(64% 0.11 310);
+    --purple-4: oklch(58% 0.11 310);
+    --purple-5: oklch(52% 0.11 310);
+
+	/* My colours */
+
+	--text-white: #FFFFFFC9;
+
+/* User Panel Redesign */
+
+  --panel-radius: 16px;
+
+  --spotify-image-opacity: 0.5;
+  --spotify-image-hover-opacity: 0.85;
+
+  --order-quests: 0;
+  --order-listening: 1;
+  --order-stream: 2;
+  --order-spotify-player: 3;
+  --order-voice: 4;
+  --order-profile: 5;
+  
+/* User Panel Redesign */
+  
+}
+
+/* User Panel Redesign */
+
+.panels__5e434 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  background: var(--bg-3);
+  border: none;
+}
+
+.mask__0d616 {
+  order: var(--order-quests);
+  margin-inline: 0;
+  padding-inline: 0;
+  border-radius: var(--panel-radius);
+}
+.wrapper__0d616,
+.wrapperVisible__0d616 {
+  border-radius: var(--panel-radius);
+}
+
+.listeningAlong_e0cf27,
+.panel__5dec7,
+.container_e131a9,
+.container__37e49 {
+  background-color: var(--bg-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--panel-radius);
+}
+
+.listeningAlong_e0cf27 {
+  order: var(--order-listening);
+}
+
+.panel__5dec7 {
+  order: var(--order-stream);
+  padding: calc(var(--custom-guild-list-padding) - var(--custom-panels-spacing) + 3px);
+}
+
+.wrapper_e131a9 {
+  order: var(--order-voice);
+
+  &:not(:has(.container_e131a9)) {
+    display: none;
+  }
+
+  .container_e131a9 {
+    min-height: 90px;
+  }
+}
+
+.container__37e49 {
+  order: var(--order-profile);
+  min-height: 56px;
+
+  &:has(.plated_37e49) {
+    border: none;
+  }
+}
+
+
+/* Vencord Spotify */
+
+#vc-spotify-player {
+  order: var(--order-spotify-player);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom, transparent 0%, var(--panel-color) 100%) !important;
+  border: 1px solid transparent;
+  border-radius: var(--panel-radius);
+  margin: 0 -1px;
+
+  .barFill_a562c8 {
+    background-color: var(--vc-spotify-green) !important;
+  }
+
+#vc-spotify-album-image {
+  border-radius: 20%;
+}
+
+
+  .vc-spotify-button-play,
+  .vc-spotify-repeat-context,
+  .vc-spotify-repeat-track,
+  .vc-spotify-shuffle-on {
+    span {
+      color: #1ed760 !important;
+    }
+    svg {
+      fill: #1ed760 !important;
+    }
+  }
+
+.vc-spotify-button:hover {
+  color: #1ed760; /* Hover color */
+}
+
+  .vc-spotify-progress-time {
+    margin-top: 10px;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transition: all 0.4s ease-out;
+    z-index: -1;
+  }
+  &::before {
+    background: var(--vc-spotify-track-image) center/cover no-repeat;
+    opacity: var(--spotify-image-opacity);
+  }
+  &:hover::before {
+    opacity: var(--spotify-image-hover-opacity);
+  }
+  &:hover::after {
+    backdrop-filter: blur(0);
+  }
+
+  > * {
+    filter: drop-shadow(0 0 10px var(--panel-color));
+  }
+}
+
+/* User Panel Redesign */
+
+/* Spoiler Colour */
+
+span[role="button"][aria-label="Spoiler"] {
+  	background-color: #1e1f22 !important; /* base spoiler colour */
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+}
+
+span[role="button"][aria-label="Spoiler"]:hover {
+  background-color: #272930 !important; /* hover colour */
+}
+
+/* Spoiler Colour */
+
+/* No Activity Status*/
+[class*='membersGroup']:has([role=button]),
+[class*='member'] [class*='container']:has([class*='badges']) {
+  display: none;
+}
+/* Hide activity status and member group buttons */
+[class*='membersGroup']:has([role=button]),
+[class*='member'] [class*='container']:has([class*='badges']) {
+  display: none;
+}
+/* No Activity Status*/
+
+/* Stage channel icon */
+[class^=icon__] path[d^="M19.61 18.25a1.08"] {
+    color: #75a5e5 !important;
+}
+
+/* Stage channel icon */
+
+/* Profile Modal V1 Back */
+/* blade0 - the.rabbit.disabler in Vencord server */
+
+.user-profile-modal-v2 {
+  --pmv1b-max-width: 800px; /* Adjust value as needed */
+  --pmv1b-banner-height: 50%; /* Adjust value as needed */
+
+}
+
+.user-profile-modal-v2 {
+    max-width: var(--pmv1b-max-width) !important;
+    min-width: 0px !important;
+
+    .inner_c0bea0 {
+        padding: 0px !important;
+        gap: 0px !important;
+        flex-direction: column !important;
+        container-type: size;
+    }
+
+    .profile__9c3be {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: var(--radius-md);
+    }
+
+    &.custom-theme-background {
+        .inner_c0bea0 {
+            padding: 4px !important;
+            background: linear-gradient(var(--profile-gradient-primary-color), var(--profile-gradient-secondary-color)) !important;
+        }
+
+        .profile__9c3be {
+            width: calc(100% - 8px);
+            height: calc(100% - 8px);
+        }
+    }
+
+    .selected_aa8da2 {
+        color: var(--text-4) !important;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .inner_c0bea0:has(.tabBarItem__37bfc:focus, .top_aa8da2:focus, .tabBarPanel__37bfc:focus-within, .tabBarPanel__37bfc:focus) {
+        .profile__9c3be {
+
+            .markup__75297,
+            .section_bf424d {
+                visibility: hidden !important;
+                pointer-events: none !important;
+            }
+
+        }
+
+        .tabBarPanel__37bfc {
+            display: flex !important;
+            opacity: 1;
+            pointer-events: all !important;
+        }
+
+        .top_aa8da2::before {
+            color: var(--text-4);
+            border-bottom: none !important;
+        }
+
+        .selected_aa8da2 {
+            color: var(--selected-tab-item-color) !important;
+
+            &::after {
+                display: block !important;
+            }
+        }
+    }
+
+    .tabBarPanel__37bfc {
+        opacity: 0;
+        z-index: 999;
+        pointer-events: none !important;
+        padding: 0px 26px;
+    }
+
+    .container__37bfc {
+        margin-top: 270px;
+        padding: 18px 4px 26px;
+
+        .top_aa8da2 {
+            padding-left: 26px;
+        }
+    }
+
+    .banner__68edb {
+        height: 100% !important;
+        border-radius: 0px;
+    }
+
+    .profileHeader__9c3be {
+        height: 320px !important;
+
+        .mask__68edb {
+            min-height: 0px !important;
+
+            >foreignObject {
+                mask: none;
+
+                .banner__68edb {
+                    min-height: var(--pmv1b-banner-height) !important;
+                    height: var(--pmv1b-banner-height) !important;
+
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .profileButtons__9c3be {
+        position: fixed;
+        right: 26px;
+        top: 230px !important;
+    }
+
+    .container__63ed3 {
+        position: fixed;
+        top: 220px !important;
+        max-width: calc(var(--pmv1b-max-width) - 200px - 26px - 26px);
+    }
+
+    .profileBody__9c3be {
+        margin-top: -2px;
+        padding-top: var(--space-xl);
+    }
+
+    .top_aa8da2::before {
+        content: "User Info";
+        color: var(--text-4);
+        border-bottom: 2px solid var(--text-0) !important;
+        font-size: 14px;
+        font-weight: 600;
+        padding-bottom: 13px;
+        --tab-item-color: var(--text-primary);
+        margin: 0px var(--space-xl) 0px 8px;
+    }
+
+    .empty_e766f2 {
+        padding: 0px !important;
+        justify-content: center;
+    }
+
+    .tabBarItem__37bfc:hover {
+        color: var(--text-3) !important;
+        cursor: pointer;
+
+        &::after {
+            display: block;
+        }
+    }
+
+    .profileAppConnections__9c3be {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .connection__9bfb9 {
+        border: 1px solid var(--border-subtle) !important;
+        border-radius: var(--radius-sm);
+        padding: var(--space-sm);
+
+        .accountName__9bfb9,
+        .platformUrlAnchor__9bfb9,
+        .connectionInfo__9bfb9 {
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+    .connectionInfo__9bfb9 {
+        justify-content: start;
+        padding-top: 3px;
+    }
+
+    .connection__9bfb9:has(.metadata__9bfb9>.connectedAccountVanityMetadata_fffe42) {
+        order: -1;
+
+        .connectionInfo__9bfb9 {
+            justify-content: center;
+            padding-top: 0px;
+        }
+    }
+
+    .wrapper__44b0c::before {
+        content: "";
+        position: absolute;
+        left: -7.5%;
+        top: -7.5%;
+        width: 115%;
+        height: 115%;
+        border-radius: 50%;
+        background: var(--profile-gradient-modal-background-color);
+    }
+}
+/* Profile Modal V1 Back */	
+
+/* Hide Back/Forward Buttons */
+[class*='backForwardButtons__63abb'] {
+	display: none !important;
+}
+/* Hide Back/Forward Buttons */
+
 

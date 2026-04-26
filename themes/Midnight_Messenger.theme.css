@@ -11,7 +11,7 @@
 
 /* import theme modules */
 @import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
-@import url('https://raw.githubusercontent.com/IyeViking/Vikings-Midnight-Themes/refs/heads/main/addons/Midnight_ChatBubbles.css'); 
+@import url('https://raw.githubusercontent.com/IyeViking/Vikings-Midnight-Themes/refs/heads/master/addons/Midnight_ChatBubbles.css'); 
 
 body {
     /* font options */
@@ -214,7 +214,7 @@ body {
 
 .avatar_c19a55,
 .avatarDecoration_c19a55 {
-	transform: scale(1.1) !important;
+	transform: scale(1.2) !important;
 }
 
 
