@@ -1,21 +1,20 @@
 
 # Midnight Messenger / Messenger Standard
 
-A dark, messenger style Midnight with a WhatsApp / Classic messaging layout.
+A dark, messenger style Midnight with chat bubbles in both a messenger and standard Discord messaging layout.
 
 # Midnight Messenger
 
-<img width=800 src="https://github.com/IyeViking/Vikings-Midnight-Themes/blob/master/assets/Midnight_Messenger_Standard_Preview.png">
+<img width=800 src="https://github.com/IyeViking/Vikings-Midnight-Themes/blob/master/assets/Midnight_Messenger_Preview.png">
 
 # Midnight Messenger Standard
 
-<img width=800 src="https://github.com/IyeViking/Vikings-Midnight-Themes/blob/master/assets/Midnight_Messenger_Preview.png">
+<img width=800 src="https://github.com/IyeViking/Vikings-Midnight-Themes/blob/master/assets/Midnight_Messenger_Standard_Preview.png">
 
 # Midnight Prefresh (No Longer Maintained)
 A pre-refresh familiar, QOL, rounded discord theme that mimics the old colours from before the Visual Refresh.
 
 A tweaked and edited version of [Midnight](https://refact0r.github.io/midnight-discord/) by refact0r
-
 
 <img width=800 src="https://github.com/IyeViking/Vikings-Midnight-Themes/blob/master/assets/Midnight_Prefresh_Preview.png">
 
