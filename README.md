@@ -20,7 +20,7 @@ A tweaked and edited version of [Midnight](https://refact0r.github.io/midnight-d
 
 ## Install
 
-### vencord/betterdiscord (or any client that supports theme files)
+### Vencord / BetterDiscord (or any client that supports theme files)
 
 1. Download the theme files, [`Midnight_Messenger.theme.css`](https://github.com/IyeViking/Vikings-Midnight-Themes/blob/master/themes/Midnight_Messenger.theme.css) or [`Midnight_Messenger_Standard.theme.css`](https://github.com/IyeViking/Vikings-Midnight-Themes/blob/master/themes/Midnight_Messenger_Standard.theme.css). (there is a download button at the top right of the page)
 2. Drag the file into your theme folder. (there should be a button to open the theme folder in theme settings)
