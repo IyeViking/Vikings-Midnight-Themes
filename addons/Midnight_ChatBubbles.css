@@ -195,6 +195,12 @@
 
 /* TODO: Somehow fix replied "message with command" preview "used /blahblah" left margin */
 /*#endregion Replied preview*/
+/*#region forward*/
+/* Remove weird forward line */
+.quote__122e4 {
+    display: none !important;
+}
+/*#endregion forward*/
 /*#region Mentioned*/
 .mentioned__5126c::before {
   /* Recreate mentioned style to have rounded corners */
