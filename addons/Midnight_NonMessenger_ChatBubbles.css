@@ -176,3 +176,7 @@
   display: none;
 }
 
+/* Remove weird forward line */
+.quote__122e4 {
+    display: none !important;
+}
