@@ -163,20 +163,22 @@ body {
   --cb-mentioned-indicator-width: 3px;
   /* Width of left indicator line in message that you are replying */
 
-    /* Chat bubbles compat */
-    --cb-bubble-background: #16191e;
-    --cb-bubble-background-hover: #191c21;
-    --cb-bubble-background-self: #17533d;
-    --cb-bubble-background-hover-self: #1a5e45;
-    --background-mentioned: #2a2e4a;
-    --background-mentioned-hover: #303555;
-    --cb-text-normal-self: var(--text-1);
-    --cb-text-muted-self: var(--text-3);
+/* Chat bubbles compat */
+	--cb-bubble-background: #16191e;
+	--cb-bubble-background-hover: #1c2026;
+	--cb-bubble-background-self: #17533d;
+	--cb-bubble-background-hover-self: #1a5e45;
+	--background-mentioned: #2a2e4a;
+	--background-mentioned-hover: #303555;
+	--cb-text-normal-self: var(--text-1);
+	--cb-text-muted-self: var(--text-3);
 	--background-replying: #353c47;
 	--background-replying-hover: #3b4350;
 	--background-replying-self: #10714e;
 	--background-replying-self-hover: #127954;
-
+	--mentioned-replying: #34395c;
+	--mentioned-replying-hover: #383e64;
+ 
 	
 /* User Panel Redesign */
 
