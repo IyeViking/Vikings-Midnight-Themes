@@ -234,6 +234,15 @@
     border-left: solid 2px var(--text-3) !important;
 }
 
+.message__5126c.mentioned__5126c.replying__5126c {
+    background: var(--mentioned-replying) !important;
+    border-left: 2px solid var(--accent-1) !important;
+}
+.message__5126c.mentioned__5126c.replying__5126c:hover {
+    background: var(--mentioned-replying-hover) !important;
+    border-left: 2px solid var(--accent-1) !important;
+}
+
 .replying__5126c:before {
     display: none !important;
 }
