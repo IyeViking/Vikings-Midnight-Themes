@@ -217,7 +217,6 @@
 /*#endregion Mentioned*/
 /*#region Replying*/
 /* Make Message replying to easier to see */
-/* Make Message replying to easier to see */
 [data-is-self="true"] .message__5126c.replying__5126c {
     background: var(--background-replying-self) !important;
     border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--accent-2), white 20%) !important;
