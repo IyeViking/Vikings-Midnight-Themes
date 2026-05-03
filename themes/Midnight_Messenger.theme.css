@@ -172,7 +172,7 @@ body {
     --background-mentioned-hover: #303555;
     --cb-text-normal-self: var(--text-1);
     --cb-text-muted-self: var(--text-3);
-	
+	--background-replying: #353c47;
 	
 	
 /* User Panel Redesign */
