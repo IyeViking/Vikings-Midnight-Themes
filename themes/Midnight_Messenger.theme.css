@@ -173,7 +173,10 @@ body {
     --cb-text-normal-self: var(--text-1);
     --cb-text-muted-self: var(--text-3);
 	--background-replying: #353c47;
-	
+	--background-replying-hover: #3b4350;
+	--background-replying-self: #10714e;
+	--background-replying-self-hover: #127954;
+
 	
 /* User Panel Redesign */
 
