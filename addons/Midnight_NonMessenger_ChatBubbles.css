@@ -115,7 +115,26 @@
 }
 
 /* Make Message replying to easier to see */
+[data-is-self="true"] .message__5126c.cozyMessage__5126c.groupStart__5126c.replying__5126c {
+    background: var(--background-replying-self) !important;
+    border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--accent-2), white 20%) !important;
+}
+[data-is-self="true"] .message__5126c.cozyMessage__5126c.groupStart__5126c.replying__5126c:hover {
+    background: var(--background-replying-self-hover) !important;
+    border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--accent-2), white 30%) !important;
+}
+.message__5126c.cozyMessage__5126c.groupStart__5126c.replying__5126c {
+    background: var(--background-replying) !important;
+    border-left: solid 2px var(--text-4) !important;
+}
+.message__5126c.cozyMessage__5126c.groupStart__5126c.replying__5126c:hover {
+    background: var(--background-replying-hover) !important;
+    border-left: solid 2px var(--text-3) !important;
+}
 
+.replying__5126c:before {
+    display: none !important;
+}
 
 /* mentioned reply styling (FIXED specificity + override) */
 .message__5126c.mentioned__5126c .repliedMessage_c19a55 {
