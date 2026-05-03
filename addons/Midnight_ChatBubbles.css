@@ -1,5 +1,3 @@
-
-
 /* Self Highlight colors, use ThemeAttributes to access */
 [data-is-self="true"] .message__5126c {
   --cb-bubble-background: var(--cb-bubble-background-self);
@@ -218,18 +216,13 @@
 
 /*#endregion Mentioned*/
 /*#region Replying*/
-.replying__5126c::before {
-  /* Recreate replying style to have rounded corners */
-  display: unset;
+/* Make Message replying to easier to see */
+.message__5126c.cozyMessage__5126c.groupStart__5126c.replying__5126c {
+    background: var(--background-replying) !important;
+    border-left: solid 2px var(--accent-1) !important;
 }
-
-.replying__5126c {
-  border-left: var(--brand-experiment) 2px solid;
-}
-
-.replying__5126c .avatar_c19a55 {
-  /* Fix avatar indent when replying */
-  margin-left: calc(-4.5rem - var(--cb-replying-indicator-width));
+.replying__5126c:before {
+    display: none !important;
 }
 
 /*#endregion Replying*/
@@ -273,17 +266,6 @@
   margin-bottom: unset;
 }
 
-/*#endregion Reactions*/
-/*#region Emoji*/
-.emojiContainer__75abc {
-  width: fit-content;
-  height: fit-content;
-}
-
-.emoji {
-  width: 21px;
-  height: 21px;
-}
 
 /*#endregion Emoji*/
 /*#region Dividers*/
@@ -374,49 +356,11 @@
   transition: all 0.1s ease-in-out;
 }
 
-/*#endregion Remove attachment buttons*/
-/* Replying to */
-.message__5126c.replying__5126c {
-  transform: translateX(20px);
-}
 
 
 
-/* Styled message bubbles with arrow pointing to sender */
-@container style(--bool-wa-style-bubbles: true) {
-  .message__5126c.groupStart__5126c:not(.systemMessage__5126c) {
-  }
-  .message__5126c.groupStart__5126c:not(.systemMessage__5126c)::before {
-    content: "";
-    position: absolute;
-    padding: 10px 6.5px;
-    top: 0;
-    left: -8px;
-  
-  /* Shift avatar in replied messages up */
-  .repliedMessage_c19a55+.contents_c19a55 {
-  & > .avatar_c19a55{
-    margin-top: -3.8rem;
-    }
-    & > .avatarDecoration_c19a55 {
-      margin-top: -4.1rem;
-    }
-  }
-  /* Fix mentioned message left bar */
-  .mentioned__5126c.mentioned__5126c.mentioned__5126c.groupStart__5126c::before {
-    display: block;
-    background-color: #f9e2af !important;
-    left: -10px;
-  }
-  span.messageChipletContainerInner__10651, span.messageText__10651 {
-    line-height: unset !important;
-  }
-  [data-is-self="true"] .message__5126c {
-      --background-surface-high: color-mix(in srgb, var(--cb-bubble-background-self) 65%, black);
-  }
 
-}
-}
+
 /* mention indicator */
 .mentioned__5126c {
   border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--background-mentioned), var(--accent-1) 70%);
@@ -442,4 +386,3 @@
     var(--background-mentioned-hover)
   ) !important;
 }
-
