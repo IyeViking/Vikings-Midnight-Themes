@@ -129,7 +129,6 @@
 }
 .message__5126c.replying__5126c:hover {
     background: var(--background-replying-hover) !important;
-    border-left: solid 2px var(--text-3) !important;
 }
 
 .message__5126c.mentioned__5126c.replying__5126c {
