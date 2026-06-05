@@ -137,7 +137,7 @@
 /*#region Replied preview*/
 .repliedMessage_c19a55 {
   padding: 2px;
-  border-left: 2px solid;
+
   border-radius: 10px !important;
   padding-left: 6px;
   background: var(--bg-4);
