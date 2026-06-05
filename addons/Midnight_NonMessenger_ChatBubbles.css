@@ -105,12 +105,9 @@
 .repliedMessage_c19a55 {
   display: flex;              /* force flex so wrapping works */
   flex-wrap: wrap;           /* allow wrapping */
-
   padding: 2px;
-  border-left: 2px solid;
   border-radius: 10px !important;
   padding-left: 6px;
-
   background: var(--bg-4);
 }
 
