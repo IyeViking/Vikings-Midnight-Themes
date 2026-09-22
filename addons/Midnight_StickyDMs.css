@@ -10,12 +10,12 @@
     top: -16px;
     width: 100%;
     height: 200%;
-    background-color: var(--bg-2) !important;
+    background-color: var(--bg-4) !important;
     z-index: -9;
 }
 #guild-list-unread-dms {
     position: sticky !important;
-    top: 86px !important;
+    top: 80px !important;
     z-index: 100 !important;
 }
 #guild-list-unread-dms::before {
@@ -32,11 +32,11 @@
 #guild-list-unread-dms::after {
     content: '';
     position: absolute;
-    bottom: -6px;
+    bottom: -7px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
-    height: 2px;
+    height: 3px;
     background-color: var(--accent-2);
     border-radius: 1px;
     z-index: 0;
@@ -64,9 +64,9 @@
 
 .vc-ranb-button {
     position: sticky !important;
-    top: 58px;
+    top: 54px;
     z-index: 1000;
-    background-color: var(--bg-2);
+    background-color: var(--bg-1);
     border-radius: 10px !important;
 }
 .unreadMentionsIndicatorTop_ef3116 {
