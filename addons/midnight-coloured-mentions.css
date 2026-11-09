@@ -1,23 +1,23 @@
 /* Coloured role mentions — excluding replies */
-.mentioned__5126c:not(.hasReply_c19a55) {
+.mentioned_SY_P2T:not(.hasReply_2i8Bfm) {
   background: none;
   z-index: 0;
 }
-.message__5126c:hover, .message__5126c.selected__5126c {
+.message_SY_P2T:hover, .message_SY_P2T.selected_SY_P2T {
   background-color: var(--bg-overlay-1, var(--background-message-hover)) !important;
 }
-.messageContent_c19a55, .compact_c19a55 .contents_c19a55 {
+.messageContent_2i8Bfm, .compact_2i8Bfm .contents_2i8Bfm {
   position: unset !important;
 }
-.mention, .roleMention__75297 {
+.mention, .roleMention_ku1OHH {
   position: unset;
   filter: none;
 }
 
 /* Line separator for non-replies */
-.hasReply_c19a55.mentioned__5126c:not(.hasReply_c19a55):not(:has([class*="ention"])):before,
-.mentioned__5126c .mention:before,
-.mentioned__5126c .roleMention__75297:before {
+.hasReply_2i8Bfm.mentioned_SY_P2T:not(.hasReply_2i8Bfm):not(:has([class*="ention"])):before,
+.mentioned_SY_P2T .mention:before,
+.mentioned_SY_P2T .roleMention_ku1OHH:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -32,8 +32,8 @@
 }
 
 /* Message background for mentions and role mentions — excluding replies */
-.mentioned__5126c:not(.hasReply_c19a55) .mention:after,
-.mentioned__5126c:not(.hasReply_c19a55) .roleMention__75297:after {
+.mentioned_SY_P2T:not(.hasReply_2i8Bfm) .mention:after,
+.mentioned_SY_P2T:not(.hasReply_2i8Bfm) .roleMention_ku1OHH:after {
   content: "";
   position: absolute;
   inset: 0;
@@ -46,37 +46,35 @@
 }
 
 /* Fallback color for user mentions — excluding replies */
-.mentioned__5126c:not(.hasReply_c19a55) .mention:not(.roleMention__75297):after {
+.mentioned_SY_P2T:not(.hasReply_2i8Bfm) .mention:not(.roleMention_ku1OHH):after {
   background-color: var(--brand-500) !important;
   opacity: 0.1;
 }
 
 /* Line and background color for inline-colored role mentions */
-.roleMention__75297[style]:before {
+.roleMention_ku1OHH[style]:before {
   background-color: currentColor;
 }
-.roleMention__75297[style]:after {
+.roleMention_ku1OHH[style]:after {
   background-color: currentColor !important;
   filter: saturate(var(--saturation-factor, 1));
   opacity: 0.1;
 }
 
 /* Remove default Discord styling */
-.mentioned__5126c:not(.hasReply_c19a55):before,
-.mentioned__5126c:after,
+.mentioned_SY_P2T:not(.hasReply_2i8Bfm):before,
+.mentioned_SY_P2T:after,
 .mention ~ [class*="ention"]:before,
 .mention ~ [class*="ention"]:after,
-.roleMention__75297 ~ [class*="ention"]:before,
-.roleMention__75297 ~ [class*="ention"]:after {
+.roleMention_ku1OHH ~ [class*="ention"]:before,
+.roleMention_ku1OHH ~ [class*="ention"]:after {
   content: unset;
 }
 
 /* MULTIPLE mentions → reduce opacity */
-.mentioned__5126c:not(.hasReply_c19a55):has(.mention ~ .mention) .mention::after,
-.mentioned__5126c:not(.hasReply_c19a55):has(.roleMention__75297 ~ .roleMention__75297) .roleMention__75297::after,
-.mentioned__5126c:not(.hasReply_c19a55):has(.mention ~ .roleMention__75297) .mention::after,
-.mentioned__5126c:not(.hasReply_c19a55):has(.roleMention__75297 ~ .mention) .roleMention__75297::after {
+.mentioned_SY_P2T:not(.hasReply_2i8Bfm):has(.mention ~ .mention) .mention::after,
+.mentioned_SY_P2T:not(.hasReply_2i8Bfm):has(.roleMention_ku1OHH ~ .roleMention_ku1OHH) .roleMention_ku1OHH::after,
+.mentioned_SY_P2T:not(.hasReply_2i8Bfm):has(.mention ~ .roleMention_ku1OHH) .mention::after,
+.mentioned_SY_P2T:not(.hasReply_2i8Bfm):has(.roleMention_ku1OHH ~ .mention) .roleMention_ku1OHH::after {
   opacity: 0.01 !important; /* lower this if still too strong */
 }
-
-
