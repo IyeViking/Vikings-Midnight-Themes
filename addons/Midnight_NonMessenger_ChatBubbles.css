@@ -3,7 +3,7 @@
 /* SELF COLORS */
 
 /* */
-[data-is-self="true"] .message__5126c {
+[data-is-self="true"] .message_SY_P2T {
   --cb-bubble-background: var(--cb-bubble-background-self);
   --cb-bubble-background-hover: var(--cb-bubble-background-hover-self);
   --text-normal: var(--cb-text-normal-self);
@@ -11,7 +11,7 @@
   --header-primary: var(--cb-text-muted-self);
 }
 
-[data-is-self="true"] .message__5126c .repliedMessage_c19a55 {
+[data-is-self="true"] .message_SY_P2T .repliedMessage_2i8Bfm {
   background: var(--bg-3);
 }
 /* */
@@ -19,21 +19,21 @@
 
 /* MESSAGE LAYOUT (FIXED) */
 
-.messageListItem__5126c {
+.messageListItem_SY_P2T {
   margin-left: 68px;
 }
 
 /* AVATARS (RESTORED ALIGNMENT) */
-.avatar_c19a55,
-.avatarDecoration_c19a55,
-.timestampVisibleOnHover_c19a55 {
+.avatar_2i8Bfm,
+.avatarDecoration_2i8Bfm,
+.timestampVisibleOnHover_2i8Bfm {
   margin-left: -4.5rem;
 }
 
 
 
 /* bubble spacing ONLY (no layout shift) */
-.message__5126c {
+.message_SY_P2T {
   background: var(--cb-bubble-background);
 
   width: fit-content;
@@ -45,36 +45,36 @@
 }
 
 /* Reset ONLY grouped messages (same author stack) */
-.messageListItem__5126c:not(.groupStart__5126c) {
+.messageListItem_SY_P2T:not(.groupStart_SY_P2T) {
   margin-top: 8px !important;   /* your custom small gap */
 }
 
 /* Keep proper spacing when a new group starts (different author) */
-.messageListItem__5126c.groupStart__5126c {
+.messageListItem_SY_P2T.groupStart_SY_P2T {
   margin-top: 12px !important;  /* restore normal separation */
 }
 
 /* hover */
-.message__5126c.selected__5126c,
-.mouse-mode.full-motion .message__5126c:hover,
-.theme-dark .message__5126c.selected__5126c,
-.theme-dark.mouse-mode.full-motion .message__5126c:hover {
+.message_SY_P2T.selected_SY_P2T,
+.mouse-mode.full-motion .message_SY_P2T:hover,
+.theme-dark .message_SY_P2T.selected_SY_P2T,
+.theme-dark.mouse-mode.full-motion .message_SY_P2T:hover {
   background: var(--cb-bubble-background-hover);
 }
 
 
 /* MENTIONS (FIXED + CONSISTENT) */
 
-.message__5126c.mentioned__5126c:not(.systemMessage__5126c) {
+.message_SY_P2T.mentioned_SY_P2T:not(.systemMessage_SY_P2T) {
   background: var(--background-mentioned) !important;
 }
 
-.message__5126c.mentioned__5126c:not(.systemMessage__5126c):hover {
+.message_SY_P2T.mentioned_SY_P2T:not(.systemMessage_SY_P2T):hover {
   background: var(--background-mentioned-hover) !important;
 }
 
 /* self mention blending */
-[data-is-self="true"] .message__5126c.mentioned__5126c {
+[data-is-self="true"] .message_SY_P2T.mentioned_SY_P2T {
   background: color-mix(
     in srgb,
     var(--cb-bubble-background-self) 70%,
@@ -82,7 +82,7 @@
   ) !important;
 }
 
-[data-is-self="true"] .message__5126c.mentioned__5126c:hover {
+[data-is-self="true"] .message_SY_P2T.mentioned_SY_P2T:hover {
   background: color-mix(
     in srgb,
     var(--cb-bubble-background-hover-self) 70%,
@@ -91,18 +91,18 @@
 }
 
 /* mention indicator */
-.mentioned__5126c {
+.mentioned_SY_P2T {
   border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--background-mentioned), var(--accent-1) 70%);
 }
 
-[data-is-self="true"] .mentioned__5126c {
+[data-is-self="true"] .mentioned_SY_P2T {
   border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--accent-2), green 80%);
 }
 
 
 /* REPLIES */
 
-.repliedMessage_c19a55 {
+.repliedMessage_2i8Bfm {
   display: flex;              /* force flex so wrapping works */
   flex-wrap: wrap;           /* allow wrapping */
   padding: 2px;
@@ -112,38 +112,38 @@
 }
 
 /* Make Message replying to easier to see */
-[data-is-self="true"] .message__5126c.replying__5126c {
+[data-is-self="true"] .message_SY_P2T.replying_SY_P2T {
     background: var(--background-replying-self) !important;
     border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--accent-2), white 20%) !important;
 }
-[data-is-self="true"] .message__5126c.replying__5126c:hover {
+[data-is-self="true"] .message_SY_P2T.replying_SY_P2T:hover {
     background: var(--background-replying-self-hover) !important;
     border-left: var(--cb-mentioned-indicator-width) solid color-mix(in srgb, var(--accent-2), white 30%) !important;
 }
-.message__5126c.replying__5126c {
+.message_SY_P2T.replying_SY_P2T {
     background: var(--background-replying) !important;
     border-left: solid 2px var(--text-4) !important;
 }
-.message__5126c.replying__5126c:hover {
+.message_SY_P2T.replying_SY_P2T:hover {
     background: var(--background-replying-hover) !important;
     border-left: solid 2px var(--text-3) !important;
 }
 
-.message__5126c.mentioned__5126c.replying__5126c {
+.message_SY_P2T.mentioned_SY_P2T.replying_SY_P2T {
     background: var(--mentioned-replying) !important;
     border-left: 2px solid var(--accent-1) !important;
 }
-.message__5126c.mentioned__5126c.replying__5126c:hover {
+.message_SY_P2T.mentioned_SY_P2T.replying_SY_P2T:hover {
     background: var(--mentioned-replying-hover) !important;
     border-left: 2px solid var(--accent-1) !important;
 }
 
-.replying__5126c:before {
+.replying_SY_P2T:before {
     display: none !important;
 }
 
 /* mentioned reply styling (FIXED specificity + override) */
-.message__5126c.mentioned__5126c .repliedMessage_c19a55 {
+.message_SY_P2T.mentioned_SY_P2T .repliedMessage_2i8Bfm {
   border-radius: 10px !important;
 
   background: color-mix(
@@ -154,7 +154,7 @@
 }
 
 /* self messages reply tint */
-[data-is-self="true"] .message__5126c .repliedMessage_c19a55 {
+[data-is-self="true"] .message_SY_P2T .repliedMessage_2i8Bfm {
   background: color-mix(
     in srgb,
     var(--cb-bubble-background),
@@ -163,7 +163,7 @@
 }
 
 /* self messages reply tint */
-[data-is-self="true"] .message__5126c.mentioned__5126c  .repliedMessage_c19a55 {
+[data-is-self="true"] .message_SY_P2T.mentioned_SY_P2T  .repliedMessage_2i8Bfm {
   background: color-mix(
     in srgb,
     var(--background-mentioned),
@@ -173,38 +173,38 @@
 
 
 /* force the text preview onto a new line */
-.repliedMessage_c19a55 > .repliedTextPreview_c19a55 {
+.repliedMessage_2i8Bfm > .repliedTextPreview_2i8Bfm {
   width: 100%;
   flex-basis: 100%;
 }
 
 /* fix text overflow ellipsis */
-.repliedTextContent_c19a55 {
+.repliedTextContent_2i8Bfm {
   display: unset;
 }
 
 /* show reply avatar (if desired) */
-.replyAvatar_c19a55,
-.executedCommandAvatar_c19a55 {
+.replyAvatar_2i8Bfm,
+.executedCommandAvatar_2i8Bfm {
   display: unset;
 }
 
 /* fix command preview height */
-.executedCommand_c19a55 {
+.executedCommand_2i8Bfm {
   height: unset;
 }
 
 /* remove thread arrow */
-.hasThread_c19a55::after {
+.hasThread_2i8Bfm::after {
   display: none;
 }
 
 /* remove reply spine */
-.repliedMessageClickableSpine_c19a55 {
+.repliedMessageClickableSpine_2i8Bfm {
   display: none;
 }
 
 /* Remove weird forward line */
-.quote__122e4 {
+.quote_4dy_KE {
     display: none !important;
 }
