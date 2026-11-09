@@ -1,10 +1,10 @@
 /* IyeViking's Sticky DMs */
-.tutorialContainer__1f388 {
+.tutorialContainer_1IyMuq {
     position: sticky !important;
     top: 0px !important;
     z-index: 100 !important;
 }
-.tutorialContainer__1f388::before {
+.tutorialContainer_1IyMuq::before {
     content: '';
     position: absolute;
     top: -16px;
@@ -69,7 +69,7 @@
     background-color: var(--bg-1);
     border-radius: 10px !important;
 }
-.unreadMentionsIndicatorTop_ef3116 {
+.unreadMentionsIndicatorTop_5dqHTG {
     position: absolute !important;
     top: 47px;
     z-index: 1002;
